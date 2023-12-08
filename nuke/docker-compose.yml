@@ -1,0 +1,11 @@
+version: "3"
+services:
+  aws-nuke:
+    image: quay.io/rebuy/aws-nuke:v2.25.0
+    container_name: aws-nuke-container
+    volumes:
+      - /nuke-config.yml:/home/aws-nuke/config.yml
+      - ${AWS_CREDENTIALS_PATH}:/home/aws-nuke/.aws
+    environment:
+      - AWS_PROFILE=default
+    command: --profile ${AWS_PROFILE} --config /home/aws-nuke/config.yml
