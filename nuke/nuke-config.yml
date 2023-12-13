@@ -1,0 +1,15 @@
+regions:
+  - global
+  - ap-southeast-1
+
+account-blocklist:
+  - 999999999999 # production
+
+resource-types:
+  targets:
+    - S3Object
+    - S3Bucket
+    - IAMRole
+
+accounts:
+  "439064255106": {}

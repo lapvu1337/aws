@@ -1,11 +1,8 @@
 version: "3"
 services:
   aws-nuke:
-    image: quay.io/rebuy/aws-nuke:v2.25.0
+    image: quay.io/rebuy/aws-nuke:latest
     container_name: aws-nuke-container
     volumes:
-      - /nuke-config.yml:/home/aws-nuke/config.yml
-      - ${AWS_CREDENTIALS_PATH}:/home/aws-nuke/.aws
-    environment:
-      - AWS_PROFILE=default
-    command: --profile ${AWS_PROFILE} --config /home/aws-nuke/config.yml
+      - ./nuke-config.yml:/home/aws-nuke/config.yml
+    command: --access-key-id ${ACCESS_KEY_ID} --secret-access-key ${SECRET_ACCESS_KEY} --config /home/aws-nuke/config.yml
